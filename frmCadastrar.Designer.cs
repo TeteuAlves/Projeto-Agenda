@@ -49,6 +49,7 @@
             btnCadastrar.TabIndex = 0;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnCancelar
             // 
@@ -59,6 +60,7 @@
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // label1
             // 
@@ -69,6 +71,7 @@
             label1.Size = new Size(95, 37);
             label1.TabIndex = 2;
             label1.Text = "Nome";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -106,6 +109,7 @@
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(255, 23);
             txtSenha.TabIndex = 6;
+            txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // txtNome
             // 
@@ -113,6 +117,7 @@
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(255, 23);
             txtNome.TabIndex = 7;
+            txtNome.TextChanged += txtNome_TextChanged;
             // 
             // txtRep
             // 
@@ -120,6 +125,7 @@
             txtRep.Name = "txtRep";
             txtRep.Size = new Size(255, 23);
             txtRep.TabIndex = 8;
+            txtRep.TextChanged += txtRep_TextChanged;
             // 
             // txtUsuario
             // 
@@ -127,6 +133,7 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(255, 23);
             txtUsuario.TabIndex = 9;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // frmCadastrar
             // 
@@ -146,6 +153,7 @@
             Name = "frmCadastrar";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro";
+            FormClosed += frmCadastrar_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }

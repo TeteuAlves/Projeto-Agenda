@@ -45,6 +45,8 @@
             btnEntrar.TabIndex = 0;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = true;
+            btnEntrar.EnabledChanged += btnEntrar_EnabledChanged;
+            btnEntrar.Click += btnEntrar_Click;
             // 
             // btnCadastrar
             // 
@@ -55,7 +57,7 @@
             btnCadastrar.TabIndex = 1;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = true;
-            btnCadastrar.Click += button2_Click;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // label1
             // 
@@ -76,7 +78,6 @@
             label2.Size = new Size(145, 47);
             label2.TabIndex = 3;
             label2.Text = "Usuário";
-            label2.Click += label2_Click;
             // 
             // txtUsuario
             // 
@@ -85,7 +86,7 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(255, 55);
             txtUsuario.TabIndex = 4;
-            txtUsuario.TextChanged += textBox1_TextChanged;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // txtSenha
             // 
@@ -94,6 +95,7 @@
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(255, 55);
             txtSenha.TabIndex = 5;
+            txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // frmEntrar
             // 
@@ -109,6 +111,7 @@
             Name = "frmEntrar";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            FormClosed += frmEntrar_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }

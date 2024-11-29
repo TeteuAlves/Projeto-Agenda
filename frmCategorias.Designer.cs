@@ -47,6 +47,7 @@
             btnExcluir.TabIndex = 0;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnAlterar
             // 
@@ -57,6 +58,7 @@
             btnAlterar.TabIndex = 1;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = true;
+            btnAlterar.Click += btnAlterar_Click;
             // 
             // btnCriar
             // 
@@ -67,6 +69,7 @@
             btnCriar.TabIndex = 2;
             btnCriar.Text = "Criar";
             btnCriar.UseVisualStyleBackColor = true;
+            btnCriar.Click += btnCriar_Click;
             // 
             // txtCategoria
             // 
@@ -107,6 +110,7 @@
             Name = "frmCategorias";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Categorias";
+            Load += frmCategorias_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
