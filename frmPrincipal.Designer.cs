@@ -30,12 +30,12 @@
         {
             menuStrip1 = new MenuStrip();
             arquivoToolStripMenuItem = new ToolStripMenuItem();
-            editarToolStripMenuItem = new ToolStripMenuItem();
-            agendaToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
+            editarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             usuariosToolStripMenuItem = new ToolStripMenuItem();
-            label1 = new Label();
+            agendaToolStripMenuItem = new ToolStripMenuItem();
+            lbl = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,6 +55,13 @@
             arquivoToolStripMenuItem.Size = new Size(61, 20);
             arquivoToolStripMenuItem.Text = "&Arquivo";
             // 
+            // sairToolStripMenuItem
+            // 
+            sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            sairToolStripMenuItem.Size = new Size(93, 22);
+            sairToolStripMenuItem.Text = "Sair";
+            sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
+            // 
             // editarToolStripMenuItem
             // 
             editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem, usuariosToolStripMenuItem });
@@ -62,23 +69,12 @@
             editarToolStripMenuItem.Size = new Size(49, 20);
             editarToolStripMenuItem.Text = "&Editar";
             // 
-            // agendaToolStripMenuItem
-            // 
-            agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
-            agendaToolStripMenuItem.Size = new Size(60, 20);
-            agendaToolStripMenuItem.Text = "&Agenda";
-            // 
-            // sairToolStripMenuItem
-            // 
-            sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(180, 22);
-            sairToolStripMenuItem.Text = "Sair";
-            // 
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
             categoriasToolStripMenuItem.Size = new Size(180, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
+            categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
             // usuariosToolStripMenuItem
             // 
@@ -87,27 +83,35 @@
             usuariosToolStripMenuItem.Text = "Senha Usuário";
             usuariosToolStripMenuItem.Click += usuariosToolStripMenuItem_Click;
             // 
-            // label1
+            // agendaToolStripMenuItem
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 61);
-            label1.Name = "label1";
-            label1.Size = new Size(110, 45);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
+            agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
+            agendaToolStripMenuItem.Size = new Size(60, 20);
+            agendaToolStripMenuItem.Text = "&Agenda";
+            // 
+            // lbl
+            // 
+            lbl.AutoSize = true;
+            lbl.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbl.Location = new Point(12, 61);
+            lbl.Name = "lbl";
+            lbl.Size = new Size(110, 45);
+            lbl.TabIndex = 1;
+            lbl.Text = "label1";
+            lbl.Click += lbl_Click;
             // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(626, 158);
-            Controls.Add(label1);
+            Controls.Add(lbl);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "frmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tela Principal";
+            FormClosed += frmPrincipal_FormClosed;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -123,6 +127,6 @@
         private ToolStripMenuItem categoriasToolStripMenuItem;
         private ToolStripMenuItem usuariosToolStripMenuItem;
         private ToolStripMenuItem agendaToolStripMenuItem;
-        private Label label1;
+        private Label lbl;
     }
 }
