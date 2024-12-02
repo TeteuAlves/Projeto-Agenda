@@ -1,0 +1,75 @@
+create database dbAgenda;
+
+USE dbAgenda;
+
+create table tbusuarios (nome varchar(50) not null, 
+usuario varchar(50) primary key,
+senha varchar(30)not null 
+);
+
+create table tbcategoria(
+    cod_categoria int primary key auto_increment,
+    categoria varchar (50) not null,
+    usuario varchar(20)
+);
+
+delimiter $$
+create trigger trInsertCategoria
+BEFORE 
+INSERT
+ON tbcategoria
+FOR EACH ROW
+BEGIN
+SET NEW.usuario = current_user();
+END;
+$$
+
+delimiter ;
+
+create table tblog(
+id_log int primary key auto_increment,
+usuario varchar(20),
+datahora timestamp ,
+descricao varchar(50)
+);
+
+delimiter $$
+create trigger trLogDeleteCategoria
+after
+delete
+on tbcategoria
+for each row
+begin
+insert into tblog
+	(usuario,
+	datahora,
+	descricao)
+values 
+		(user(),
+        current_timestamp(),
+        concat('A categoria ', old.categoria, ' foi exlcuida')
+        );
+end;
+$$
+
+
+delimiter $$
+create trigger trLogAlterCategoria
+after
+UPDATE
+on tbcategoria
+for each row
+begin
+insert into tblog
+	(usuario,
+	datahora,
+	descricao)
+values 
+		(user(),
+        current_timestamp(),
+        concat('A categoria ', old.categoria, ' foi alterada', ' para ', new.categoria)
+        );
+end;
+$$
+
+
