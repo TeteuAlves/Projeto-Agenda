@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySqlConnector;
 using Projeto_Agenda.Data;
 using Projeto_Agenda.VariableGlobal;
 
@@ -176,4 +177,4 @@ namespace Projeto_Agenda.Controller
         }
     }
 }
-}
+

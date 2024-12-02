@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySqlConnector;
 using Projeto_Agenda.Data;
 using Projeto_Agenda.VariableGlobal;
 
@@ -13,11 +14,12 @@ namespace Projeto_Agenda.Controller
     {
         public bool AddUsuario(string nome, string usuario, string senha)
         {
-
+            //Cria a conexão, estou utilizando a classe ConexaoDB que está dentro da pasta DATA
+            
+            MySqlConnection conexao = null;
             try
             {
-                //Cria a conexão, estou utilizando a classe ConexaoDB que está dentro da pasta DATA
-                MySqlConnection conexao = conexaoDB.CriarConexao();
+                conexao = conexaoDB.CriarConexao();
 
                 //Comando SQL que será executado
                 string sql = "INSERT INTO tbUsuarios (nome, usuario, senha) VALUES (@nome, @usuario, @senha);";
@@ -49,7 +51,7 @@ namespace Projeto_Agenda.Controller
                     string sql2 = $@"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';
                     GRANT ALL PRIVILEGES ON dbagenda.* TO '{usuario}'@'%';
                     FLUSH PRIVILEGES;";
-                    return true;
+                   
 
                     comando = new MySqlCommand(sql2, conexao);
 
@@ -61,14 +63,17 @@ namespace Projeto_Agenda.Controller
                 {
                     return false;
                 }
-                conexao.Close();
+                
             }
             catch (Exception erro)
             {
                 MessageBox.Show($"Erro ao efutuar o cadastro: {erro.Message}");
                 return false;
             }
-
+            finally
+            {
+                conexao.Close();
+            }
 
         }
 
@@ -235,4 +240,4 @@ namespace Projeto_Agenda.Controller
         }
     }
 }
-}
+
