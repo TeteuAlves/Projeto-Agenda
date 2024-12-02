@@ -20,7 +20,7 @@ namespace Projeto_Agenda
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
@@ -42,6 +42,12 @@ namespace Projeto_Agenda
         private void lbl_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void contatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmContatos frmContatos = new frmContatos();
+            frmContatos.ShowDialog();
         }
     }
 }

@@ -65,9 +65,9 @@ namespace Projeto_Agenda.Controller
 
             try
             {
-                conexao = conexaoDB.CriarConexao();
+                conexao = conexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
 
-                String sql = @"select cod_categoria as 'Código' , categoria as 'Categoria' from tbcategoria";
+                String sql = @"select cod_categoria as 'Código' , categoria as 'Categoria', usuario from tbcategoria WHERE usuario = User()";
 
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
 

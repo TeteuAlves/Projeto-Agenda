@@ -33,10 +33,9 @@
             sairToolStripMenuItem = new ToolStripMenuItem();
             editarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
-            agendaToolStripMenuItem = new ToolStripMenuItem();
-            contatoToolStripMenuItem = new ToolStripMenuItem();
-            contatoToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
+            agendaToolStripMenuItem = new ToolStripMenuItem();
+            contatosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -79,26 +78,6 @@
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
-            // agendaToolStripMenuItem
-            // 
-            agendaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contatoToolStripMenuItem, contatoToolStripMenuItem1 });
-            agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
-            agendaToolStripMenuItem.Size = new Size(60, 20);
-            agendaToolStripMenuItem.Text = "&Agenda";
-            // 
-            // contatoToolStripMenuItem
-            // 
-            contatoToolStripMenuItem.Name = "contatoToolStripMenuItem";
-            contatoToolStripMenuItem.Size = new Size(180, 22);
-            contatoToolStripMenuItem.Text = "Contato";
-            // 
-            // contatoToolStripMenuItem1
-            // 
-            contatoToolStripMenuItem1.Name = "contatoToolStripMenuItem1";
-            contatoToolStripMenuItem1.Size = new Size(180, 22);
-            contatoToolStripMenuItem1.Text = "Contato";
-            contatoToolStripMenuItem1.Click += this.contatoToolStripMenuItem1_Click;
-            // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { arquivoToolStripMenuItem, editarToolStripMenuItem, agendaToolStripMenuItem });
@@ -107,6 +86,20 @@
             menuStrip1.Size = new Size(626, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
+            // 
+            // agendaToolStripMenuItem
+            // 
+            agendaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contatosToolStripMenuItem });
+            agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
+            agendaToolStripMenuItem.Size = new Size(60, 20);
+            agendaToolStripMenuItem.Text = "&Agenda";
+            // 
+            // contatosToolStripMenuItem
+            // 
+            contatosToolStripMenuItem.Name = "contatosToolStripMenuItem";
+            contatosToolStripMenuItem.Size = new Size(180, 22);
+            contatosToolStripMenuItem.Text = "Contatos";
+            contatosToolStripMenuItem.Click += contatosToolStripMenuItem_Click;
             // 
             // frmPrincipal
             // 
@@ -132,9 +125,8 @@
         private ToolStripMenuItem sairToolStripMenuItem;
         private ToolStripMenuItem editarToolStripMenuItem;
         private ToolStripMenuItem categoriasToolStripMenuItem;
-        private ToolStripMenuItem agendaToolStripMenuItem;
-        private ToolStripMenuItem contatoToolStripMenuItem;
-        private ToolStripMenuItem contatoToolStripMenuItem1;
         private MenuStrip menuStrip1;
+        private ToolStripMenuItem agendaToolStripMenuItem;
+        private ToolStripMenuItem contatosToolStripMenuItem;
     }
 }
