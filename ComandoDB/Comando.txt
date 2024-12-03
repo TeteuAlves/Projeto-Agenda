@@ -72,4 +72,61 @@ values
 end;
 $$
 
+create table tbcontatos(
+id_contato int primary key auto_increment,
+contato varchar(20),
+telefone varchar(20),
+categoria varchar(20),
+usuario varchar(20)
+);
+
+delimiter $$
+create trigger trInsertUsuario
+BEFORE 
+INSERT
+ON tbcontatos
+FOR EACH ROW
+BEGIN
+SET NEW.usuario = user();
+END;
+$$
+
+delimiter $$
+create trigger trLogDeleteUsuario
+after
+delete
+on tbcontatos
+for each row
+begin
+insert into tblog
+	(usuario,
+	datahora,
+	descricao)
+values 
+		(user(),
+        current_timestamp(),
+        concat('O Contato ', old.contato, ' foi exlcuido')
+        );
+end;
+$$
+
+delimiter $$
+create trigger trLogAlterUsuario
+after
+UPDATE
+on tbcontatos
+for each row
+begin
+insert into tblog
+	(usuario,
+	datahora,
+	descricao)
+    values
+		(user(),
+        current_timestamp(),
+        concat('O contato ', old.contato, ' foi alterado', ' para ', new.contato)
+        );
+end;
+$$
+
 
