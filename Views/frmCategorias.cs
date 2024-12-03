@@ -39,6 +39,7 @@ namespace Projeto_Agenda
             if (resultado == true)
             {
                 MessageBox.Show("Cadastro feito com sucesso");
+                AtualizaDataGrid();
             }
             else
             {
@@ -52,43 +53,47 @@ namespace Projeto_Agenda
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells[0].Value);
-            string novo_nome = txtCategoria.Text;
-
-            CategoriaController controleCategoria = new CategoriaController();
-
-            bool resultado = controleCategoria.UpdateCategoria(codigo, novo_nome);
-
-            if (resultado == true)
-            {
-                MessageBox.Show("Alteração feita com sucesso!");
-                AtualizaDataGrid();
-
-            }
+            if (dgvCategorias.SelectedRows.Count > 0)
+            { 
+                int codigo = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells[0].Value); 
+                string novo_nome = txtCategoria.Text;
+                CategoriaController controleCategoria = new CategoriaController();
+                bool resultado = controleCategoria.UpdateCategoria(codigo, novo_nome);
+                if (resultado)
+                { 
+                    MessageBox.Show("Alteração feita com sucesso!");
+                    AtualizaDataGrid();
+                } 
+                else 
+                { 
+                    MessageBox.Show("Erro ao alterar sua categoria");
+                } }
             else
             {
-                MessageBox.Show("Erro ao alterar sua categoria");
+                MessageBox.Show("Nenhuma linha selecionada.");
             }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells[0].Value);
-
-            CategoriaController controleCategoria = new CategoriaController();
-
-            bool resultado = controleCategoria.ExCategoria(codigo);
-
-            if (resultado == true)
-            {
-                MessageBox.Show("Exclusão feita com sucesso!");
-                AtualizaDataGrid();
-
-            }
-            else
-            {
-               MessageBox.Show("Erro ao excluir sua categoria");
-            }
+            if (dgvCategorias.SelectedRows.Count > 0) 
+            { 
+                int codigo = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells[0].Value);
+                CategoriaController controleCategoria = new CategoriaController();
+                bool resultado = controleCategoria.ExCategoria(codigo); 
+                if (resultado) 
+                { 
+                    MessageBox.Show("Exclusão feita com sucesso!");
+                    AtualizaDataGrid();
+                } 
+                else 
+                {
+                    MessageBox.Show("Erro ao excluir sua categoria");
+                } 
+            } else 
+                { 
+                MessageBox.Show("Nenhuma linha selecionada.");
+                }
         }
 
         private void frmCategorias_Load(object sender, EventArgs e)

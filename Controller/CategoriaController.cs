@@ -4,9 +4,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 using MySqlConnector;
 using Projeto_Agenda.Data;
 using Projeto_Agenda.VariableGlobal;
+using MySqlCommand = MySqlConnector.MySqlCommand;
+using MySqlConnection = MySqlConnector.MySqlConnection;
+using MySqlDataAdapter = MySqlConnector.MySqlDataAdapter;
+
 
 namespace Projeto_Agenda.Controller
 {

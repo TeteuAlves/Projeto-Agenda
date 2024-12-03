@@ -37,10 +37,10 @@
             btnAlterar = new Button();
             btnExcluir = new Button();
             groupBox1 = new GroupBox();
-            dgvUsuarios = new DataGridView();
             txtCategoria = new ComboBox();
+            dgvContatos = new DataGridView();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvContatos).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -97,6 +97,7 @@
             btnCadastrar.TabIndex = 6;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // btnAlterar
             // 
@@ -107,6 +108,7 @@
             btnAlterar.TabIndex = 7;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = true;
+            btnAlterar.Click += btnAlterar_Click;
             // 
             // btnExcluir
             // 
@@ -117,6 +119,7 @@
             btnExcluir.TabIndex = 8;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // groupBox1
             // 
@@ -136,14 +139,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Dados do Contato";
             // 
-            // dgvUsuarios
-            // 
-            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Location = new Point(293, 36);
-            dgvUsuarios.Name = "dgvUsuarios";
-            dgvUsuarios.Size = new Size(489, 276);
-            dgvUsuarios.TabIndex = 10;
-            // 
             // txtCategoria
             // 
             txtCategoria.FormattingEnabled = true;
@@ -152,19 +147,28 @@
             txtCategoria.Size = new Size(222, 23);
             txtCategoria.TabIndex = 9;
             // 
+            // dgvContatos
+            // 
+            dgvContatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvContatos.Location = new Point(293, 36);
+            dgvContatos.Name = "dgvContatos";
+            dgvContatos.Size = new Size(489, 276);
+            dgvContatos.TabIndex = 10;
+            // 
             // frmContatos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(809, 340);
-            Controls.Add(dgvUsuarios);
+            Controls.Add(dgvContatos);
             Controls.Add(groupBox1);
             Name = "frmContatos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Contatos";
+            Load += frmContatos_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvContatos).EndInit();
             ResumeLayout(false);
         }
 
@@ -179,7 +183,7 @@
         private Button btnAlterar;
         private Button btnExcluir;
         private GroupBox groupBox1;
-        private DataGridView dgvUsuarios;
+        private DataGridView dgvContatos;
         private ComboBox txtCategoria;
     }
 }
