@@ -64,8 +64,21 @@ namespace Projeto_Agenda.Controller
 
         public DataTable GetContatos()
         {
-            MySqlConnection conexao = null; try { conexao = conexaoDB.CriarConexao(UserSession.usuario, UserSession.senha); string sql = @"SELECT id_contato as 'Código', contato as 'Contato', telefone as 'Telefone', categoria as 'Categoria' FROM tbcontatos WHERE usuario = User()"; MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao); DataTable tabela = new DataTable(); adaptador.Fill(tabela); return tabela; }
-            catch (Exception erro) { MessageBox.Show($"Erro ao recuperar contatos: {erro.Message}"); return new DataTable(); }
+            MySqlConnection conexao = null;
+            try 
+            { 
+                conexao = conexaoDB.CriarConexao(UserSession.usuario, UserSession.senha);
+
+                string sql = @"SELECT id_contato as 'Código', contato as 'Contato', telefone as 'Telefone', categoria as 'Categoria' FROM tbcontatos WHERE usuario = User()"; 
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
+                DataTable tabela = new DataTable(); adaptador.Fill(tabela);
+                return tabela;
+                }
+                catch (Exception erro) 
+                { 
+                MessageBox.Show($"Erro ao recuperar contatos: {erro.Message}");
+                return new DataTable(); 
+            }
             finally
             {
                 conexao.Close();
